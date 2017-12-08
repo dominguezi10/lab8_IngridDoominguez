@@ -29,7 +29,7 @@ public class Principal extends javax.swing.JFrame {
         jd_Login.setLocationRelativeTo(jd_Login);
         DefaultComboBoxModel model = (DefaultComboBoxModel) jcb_Receptor.getModel();
         model.addElement("Kim");
-        
+
         DefaultComboBoxModel model2 = (DefaultComboBoxModel) cb_destinatario.getModel();
         model2.addElement("Kim");
         jcb_Receptor.setModel(model);
@@ -105,8 +105,6 @@ public class Principal extends javax.swing.JFrame {
         t_altura = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         t_peso = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        cb_objetos = new javax.swing.JComboBox<>();
         bt_guardarF = new javax.swing.JButton();
         jLabel42 = new javax.swing.JLabel();
         t_contraseña = new javax.swing.JTextField();
@@ -395,6 +393,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 126, 43, 23));
 
         rb_grupoP.add(rb_fP);
+        rb_fP.setSelected(true);
         rb_fP.setText("F");
         jPanel5.add(rb_fP, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 126, -1, -1));
 
@@ -476,6 +475,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 126, 43, 23));
 
         rb_grupo.add(rb_f);
+        rb_f.setSelected(true);
         rb_f.setText("F");
         jPanel4.add(rb_f, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 126, -1, -1));
 
@@ -509,11 +509,6 @@ public class Principal extends javax.swing.JFrame {
         jLabel9.setText("Peso");
         jPanel4.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 285, 64, 30));
         jPanel4.add(t_peso, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 285, 92, 30));
-
-        jLabel10.setText("Objeto");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 345, 53, 27));
-
-        jPanel4.add(cb_objetos, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 348, 104, -1));
 
         bt_guardarF.setText("Guardar");
         bt_guardarF.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -674,6 +669,11 @@ public class Principal extends javax.swing.JFrame {
         bt_guardarHogar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 bt_guardarHogarMouseClicked(evt);
+            }
+        });
+        bt_guardarHogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_guardarHogarActionPerformed(evt);
             }
         });
         jp_objetos.add(bt_guardarHogar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, -1, -1));
@@ -963,7 +963,6 @@ public class Principal extends javax.swing.JFrame {
         jPanel7.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 126, 43, 23));
 
         rb_grupoP.add(rb_fP1);
-        rb_fP1.setSelected(true);
         rb_fP1.setText("F");
         jPanel7.add(rb_fP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(106, 126, -1, -1));
 
@@ -1077,6 +1076,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel99.setText("Objetos");
 
         jButton3.setText("Eliminar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -1085,36 +1089,32 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(73, 73, 73)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel89, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel99, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(76, 76, 76)
+                    .addComponent(jLabel99, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel89, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cb_eliminar, 0, 196, Short.MAX_VALUE)
-                        .addComponent(jcb_Objetos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(231, Short.MAX_VALUE))
+                    .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcb_Objetos, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(303, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabel89, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(37, 37, 37)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel89, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel99, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcb_Objetos, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(33, 33, 33)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Eliminar", jPanel3);
@@ -1124,6 +1124,12 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane5.setViewportView(ta_escribirReceptor);
 
         jLabel91.setText("Escribir el mensaje :");
+
+        cb_destinatario.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_destinatarioItemStateChanged(evt);
+            }
+        });
 
         jLabel92.setText("Destinatario");
 
@@ -1156,7 +1162,18 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel101.setText("Receptor");
 
+        jcb_Receptor.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcb_ReceptorItemStateChanged(evt);
+            }
+        });
+
         jButton4.setText("Enviar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -1242,7 +1259,7 @@ public class Principal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Edad"
+                "Nombre", "Edad", "Estado Civil", "Contraseña"
             }
         ));
         jScrollPane8.setViewportView(jt_tabla);
@@ -1361,7 +1378,10 @@ public class Principal extends javax.swing.JFrame {
             DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_eliminar.getModel();
             modelo2.addElement(personas.get(personas.size() - 1));
             cb_eliminar.setModel(modelo2);
-            jcb_Listar.setModel(modelo2);
+
+            DefaultComboBoxModel modelo3 = (DefaultComboBoxModel) jcb_Listar.getModel();
+            modelo3.addElement(personas.get(personas.size() - 1));
+            jcb_Listar.setModel(modelo3);
 
             t_nombreP.setText("");
             t_edadP.setText("");
@@ -1446,20 +1466,22 @@ public class Principal extends javax.swing.JFrame {
                 cb_dueño.setModel(modelo); // refrescamos
                 cb_dueño1.setModel(modelo);
                 cb_familiares.setModel(modelo);
-                
 
+                //jcb para eliminar
                 DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_eliminar.getModel();
                 modelo2.addElement(personas.get(personas.size() - 1));
                 cb_eliminar.setModel(modelo2);
+
+                // jcb para listar
                 DefaultComboBoxModel modeloE = (DefaultComboBoxModel) jcb_Listar.getModel();
                 modeloE.addElement(personas.get(personas.size() - 1));
                 jcb_Listar.setModel(modeloE);
-                
+
                 //destinatario
                 DefaultComboBoxModel DESTI = (DefaultComboBoxModel) cb_destinatario.getModel();
                 DESTI.addElement(personas.get(personas.size() - 1));
                 cb_destinatario.setModel(DESTI);
-                
+
                 // receptor
                 DefaultComboBoxModel RECEP = (DefaultComboBoxModel) jcb_Receptor.getModel();
                 RECEP.addElement(personas.get(personas.size() - 1));
@@ -1520,9 +1542,14 @@ public class Principal extends javax.swing.JFrame {
 
                     objetos.add(new Zapatos(talla, suela, confort, color, descripcion, marca, tamano, calidad, precio, dueño));
                     System.out.println(objetos.get(objetos.size() - 1));
-                    DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_objetos.getModel(); // capturamos la vista del modelo
+                    DefaultComboBoxModel modelo = (DefaultComboBoxModel) jcb_Objetos.getModel(); // capturamos la vista del modelo
                     modelo.addElement(objetos.get(objetos.size() - 1));
-                    cb_objetos.setModel(modelo); // refrescamos
+                    //cb_objetos.setModel(modelo); // refrescamos
+
+                    DefaultComboBoxModel OBJET = (DefaultComboBoxModel) jcb_Objetos.getModel(); // capturamos la vista del modelo
+                    OBJET.addElement(objetos.get(objetos.size() - 1));
+                    jcb_Objetos.setModel(OBJET); // refrescamos
+
                     cb_ObjetosModificar.setModel(modelo);
                     cb_objetos1.setModel(modelo);
 
@@ -1597,10 +1624,15 @@ public class Principal extends javax.swing.JFrame {
 
                     objetos.add(new Ropa(talla, material, pais, color, descripcion, marca, tamano, calidad, precio, dueño));
                     System.out.println(objetos.get(objetos.size() - 1));
-                    DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_objetos.getModel(); // capturamos la vista del modelo
+                    DefaultComboBoxModel modelo = (DefaultComboBoxModel) jcb_Objetos.getModel(); // capturamos la vista del modelo
                     modelo.addElement(objetos.get(objetos.size() - 1));
-                    cb_objetos.setModel(modelo); // refrescamos
+                    jcb_Objetos.setModel(modelo); // refrescamos
                     cb_objetos1.setModel(modelo);
+
+                    // objetos
+                    DefaultComboBoxModel OBJET = (DefaultComboBoxModel) jcb_Objetos.getModel(); // capturamos la vista del modelo
+                    OBJET.addElement(objetos.get(objetos.size() - 1));
+                    jcb_Objetos.setModel(OBJET); // refrescamos
 
                     bt_color.setBackground(color.red);
                     ta_descripcion1.setText("");
@@ -1669,10 +1701,14 @@ public class Principal extends javax.swing.JFrame {
 
                     objetos.add(new ObjetoHogar(tiempo, area, instruccion, fecha, color, descripcion, marca, tamano, calidad, precio, dueño));
                     System.out.println(objetos.get(objetos.size() - 1));
-                    DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_objetos.getModel(); // capturamos la vista del modelo
+                    DefaultComboBoxModel modelo = (DefaultComboBoxModel) jcb_Objetos.getModel(); // capturamos la vista del modelo
                     modelo.addElement(objetos.get(objetos.size() - 1));
-                    cb_objetos.setModel(modelo); // refrescamos
+                    jcb_Objetos.setModel(modelo); // refrescamos
                     cb_objetos1.setModel(modelo);
+
+                    DefaultComboBoxModel OBJET = (DefaultComboBoxModel) jcb_Objetos.getModel(); // capturamos la vista del modelo
+                    OBJET.addElement(objetos.get(objetos.size() - 1));
+                    jcb_Objetos.setModel(OBJET); // refrescamos
 
                     bt_color.setBackground(color.red);
                     ta_descripcion1.setText("");
@@ -1964,11 +2000,32 @@ public class Principal extends javax.swing.JFrame {
         try {
             if (personas.size() > 0) {
                 personas.remove(cb_eliminar.getSelectedItem());
-                DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_eliminar.getModel();
-                modelo.removeElement(cb_eliminar.getSelectedItem());
+
+                // para receptor
+                DefaultComboBoxModel RECE = (DefaultComboBoxModel) jcb_Receptor.getModel();
+                RECE.removeElement(cb_eliminar.getSelectedItem());
+                jcb_Receptor.setModel(RECE);
+
+                DefaultComboBoxModel DES = (DefaultComboBoxModel) cb_destinatario.getModel();
+                DES.removeElement(cb_eliminar.getSelectedItem());
+                jcb_Receptor.setModel(DES);
+
+                DefaultComboBoxModel FAMI = (DefaultComboBoxModel) cb_familiares.getModel();
+                FAMI.removeElement(cb_eliminar.getSelectedItem());
+                cb_familiares.setModel(FAMI);
+
+                //jcb para eliminar
+                DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_eliminar.getModel();
+                modelo2.removeElement(cb_eliminar.getSelectedItem());
+                cb_eliminar.setModel(modelo2);
+
+                // jcb para listar
+                DefaultComboBoxModel modeloE = (DefaultComboBoxModel) jcb_Listar.getModel();
+                modeloE.removeElement(cb_eliminar.getSelectedItem());
+                jcb_Listar.setModel(modeloE);
+
                 JOptionPane.showMessageDialog(this, "Pesona Eliminada");
-                cb_eliminar.setModel(modelo);
-                jcb_Listar.setModel(modelo);
+
             }
 
         } catch (Exception e) {
@@ -2029,18 +2086,18 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             System.out.println("entonces==== ");
-            
+
             String receptor = jcb_Receptor.getSelectedItem().toString();
             String destinatario = cb_destinatario.getSelectedItem().toString();
-            System.out.println("rec "+ receptor+ "  destina "+ destinatario);
-           
+            System.out.println("rec " + receptor + "  destina " + destinatario);
+
             if (receptor.equals(destinatario)) {
                 System.out.println("entres???");
                 JOptionPane.showMessageDialog(this, "No puede mandar msj a la misma persona");
             } else {
 
-                if (( receptor.equals("Kim") && destinatario.equals("Esposo") )
-                        || (receptor.equals("Esposo") && destinatario.equals("Kim") ) ) {
+                if ((receptor.equals("Kim") && destinatario.equals("Esposo"))
+                        || (receptor.equals("Esposo") && destinatario.equals("Kim"))) {
 
                     String mensaje = ta_escribirReceptor.getText();
                     String texto = "sadasdas";
@@ -2054,18 +2111,19 @@ public class Principal extends javax.swing.JFrame {
 
                     CifrarVigenere v = new CifrarVigenere();
                     String MsjFinal = v.Cifrar(CCriptado);
-                    System.out.println("tercer incriptado " +MsjFinal);
-                    if (destinatario.equals("Esposo") ) {
+                    System.out.println("tercer incriptado " + MsjFinal);
+                    if (destinatario.equals("Esposo")) {
                         DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb_destinatario.getModel();
                         ((Persona) modelo.getSelectedItem()).getLista().add(MsjFinal);
                     }
 
-                    ta_recibidoDestinatario.setText( ta_recibidoDestinatario.getText()+MsjFinal+ "\n" );
+                    ta_recibidoDestinatario.setText(ta_recibidoDestinatario.getText() + MsjFinal + "\n");
                     ta_escribirReceptor.setText("");
 
-                }else{
-                    ta_recibidoDestinatario.setText( ta_recibidoDestinatario.getText()+ta_escribirReceptor.getText()+ "\n" );
+                } else {
+                    ta_recibidoDestinatario.setText(ta_recibidoDestinatario.getText() + ta_escribirReceptor.getText() + "\n");
                     ta_escribirReceptor.setText("");
+                    System.out.println("msj enviado");
                 }
             }
         } catch (Exception e) {
@@ -2109,12 +2167,12 @@ public class Principal extends javax.swing.JFrame {
             if (evt.getStateChange() == 2) {
                 int filas = jt_tabla.getRowCount();
                 System.out.println("estas son las filas " + filas);
-                Persona p = (Persona) cb_eliminar.getSelectedItem();
+                Persona p = (Persona) jcb_Listar.getSelectedItem();
                 if (p instanceof Familiar) {
                     System.out.println("soy familiar");
                 }
 
-                Object[] newrows = {p.getNombre(), p.getEdad()};
+                Object[] newrows = {p.getNombre(), p.getEdad(), p.getEstado_civil(), p.getContraseña()};
                 DefaultTableModel model = (DefaultTableModel) jt_tabla.getModel();
                 int cont = 0;
 
@@ -2122,23 +2180,25 @@ public class Principal extends javax.swing.JFrame {
                     for (int i = 0; i < jt_tabla.getRowCount(); i++) {
                         if (((String) jt_tabla.getValueAt(i, 0)).equals(p.getNombre())) {
                             cont++;
+
                         }
                     }// fin del for
 
+                    if (cont == 0 && filas > 0) {
+                        model.addRow(newrows);
+                        jt_tabla.setModel(model);
+                    }// fin del if
+                    
+                    
                 } else if (filas == 0) {
                     model.addRow(newrows);
                     jt_tabla.setModel(model);
-                }// fin del if
-
-                if (cont == 0 && filas > 0) {
-                    model.addRow(newrows);
-                    jt_tabla.setModel(model);
-                }// fin del if
+                }
 
             }// fin del if
 
         } catch (Exception e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
     }//GEN-LAST:event_jcb_ListarItemStateChanged
 
@@ -2155,6 +2215,100 @@ public class Principal extends javax.swing.JFrame {
             System.out.println("aqui");
         }
     }//GEN-LAST:event_jTabbedPane1StateChanged
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        try {
+            System.out.println("entonces2==== ");
+
+            String receptor = jcb_Receptor.getSelectedItem().toString();
+            String destinatario = cb_destinatario.getSelectedItem().toString();
+            System.out.println("rec " + receptor + "  destina " + destinatario);
+
+            if (receptor.equals(destinatario)) {
+                System.out.println("entres???");
+                JOptionPane.showMessageDialog(this, "No puede mandar msj a la misma persona");
+            } else {
+
+                if ((receptor.equals("Kim") && destinatario.equals("Esposo"))
+                        || (receptor.equals("Esposo") && destinatario.equals("Kim"))) {
+
+                    String mensaje = ta_escribirDestinatario.getText();
+                    String texto = "sadasdas";
+                    //mensajeCT.add(new CifradoTrans(mensaje, texto));
+
+                    CifradoTrans mC = new CifradoTrans(mensaje, texto);
+                    String mCriptado = mC.Cifrar();
+                    System.out.println("primer incriptado " + mCriptado);
+                    String CCriptado = mC.cifradoCesar(mCriptado, 45454);
+                    System.out.println("segundo incriptado " + CCriptado);
+
+                    CifrarVigenere v = new CifrarVigenere();
+                    String MsjFinal = v.Cifrar(CCriptado);
+                    System.out.println("tercer incriptado " + MsjFinal);
+                    ta_recibidoReceptor.setText(ta_recibidoReceptor.getText() + MsjFinal + "\n");
+                    ta_escribirDestinatario.setText("");
+
+                    if (receptor.equals("Esposo")) {
+                        DefaultComboBoxModel modelo = (DefaultComboBoxModel) jcb_Receptor.getModel();
+                        ((Persona) modelo.getSelectedItem()).getLista().add(MsjFinal);
+                    }
+
+                } else {
+                    ta_recibidoReceptor.setText(ta_recibidoReceptor.getText() + ta_escribirDestinatario.getText() + "\n");
+                    ta_escribirDestinatario.setText("");
+                    System.out.println("msj enviado");
+                }
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jcb_ReceptorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcb_ReceptorItemStateChanged
+        // TODO add your handling code here:
+        try {
+            ta_escribirDestinatario.setText("");
+            ta_escribirReceptor.setText("");
+            ta_recibidoDestinatario.setText("");
+            ta_recibidoReceptor.setText("");
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jcb_ReceptorItemStateChanged
+
+    private void cb_destinatarioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_destinatarioItemStateChanged
+        // TODO add your handling code here:
+        try {
+            ta_escribirDestinatario.setText("");
+            ta_escribirReceptor.setText("");
+            ta_recibidoDestinatario.setText("");
+            ta_recibidoReceptor.setText("");
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_cb_destinatarioItemStateChanged
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        try {
+            //if (personas.size() > 0) {
+            objetos.remove(jcb_Objetos.getSelectedItem());
+            DefaultComboBoxModel modelo = (DefaultComboBoxModel) jcb_Objetos.getModel();
+            modelo.removeElement(jcb_Objetos.getSelectedItem());
+            jcb_Objetos.setModel(modelo);
+
+            DefaultComboBoxModel MODIFICAR = (DefaultComboBoxModel) cb_ObjetosModificar.getModel();
+            MODIFICAR.removeElement(cb_ObjetosModificar.getSelectedItem());
+            cb_ObjetosModificar.setModel(MODIFICAR);
+
+            JOptionPane.showMessageDialog(this, "Objeto Eliminada");
+
+            // }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void bt_guardarHogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_guardarHogarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_guardarHogarActionPerformed
 
     public void eliminarFila(int row, DefaultTableModel modeloO) {
         if (row > 0) {
@@ -2233,7 +2387,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_dueño1;
     private javax.swing.JComboBox<String> cb_eliminar;
     private javax.swing.JComboBox<String> cb_familiares;
-    private javax.swing.JComboBox<String> cb_objetos;
     private javax.swing.JComboBox<String> cb_objetos1;
     private javax.swing.JComboBox<String> cb_personalModificar;
     private javax.swing.JComboBox<String> cb_rolles;
@@ -2241,7 +2394,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
     private javax.swing.JLabel jLabel11;
