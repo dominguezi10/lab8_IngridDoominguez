@@ -29,10 +29,10 @@ public class Principal extends javax.swing.JFrame {
         jd_Login.setLocationRelativeTo(jd_Login);
         DefaultComboBoxModel model = (DefaultComboBoxModel) jcb_Receptor.getModel();
         model.addElement("Kim");
+        jcb_Receptor.setModel(model);
 
         DefaultComboBoxModel model2 = (DefaultComboBoxModel) cb_destinatario.getModel();
         model2.addElement("Kim");
-        jcb_Receptor.setModel(model);
         cb_destinatario.setModel(model2);
         //primerModelo =  (DefaultTableModel) jt_tabla.getModel(); 
         if (estado == false) {
@@ -2008,7 +2008,7 @@ public class Principal extends javax.swing.JFrame {
 
                 DefaultComboBoxModel DES = (DefaultComboBoxModel) cb_destinatario.getModel();
                 DES.removeElement(cb_eliminar.getSelectedItem());
-                jcb_Receptor.setModel(DES);
+                cb_destinatario.setModel(DES);
 
                 DefaultComboBoxModel FAMI = (DefaultComboBoxModel) cb_familiares.getModel();
                 FAMI.removeElement(cb_eliminar.getSelectedItem());
@@ -2296,7 +2296,7 @@ public class Principal extends javax.swing.JFrame {
             jcb_Objetos.setModel(modelo);
 
             DefaultComboBoxModel MODIFICAR = (DefaultComboBoxModel) cb_ObjetosModificar.getModel();
-            MODIFICAR.removeElement(cb_ObjetosModificar.getSelectedItem());
+            MODIFICAR.removeElement(jcb_Objetos.getSelectedItem());
             cb_ObjetosModificar.setModel(MODIFICAR);
 
             JOptionPane.showMessageDialog(this, "Objeto Eliminada");
